@@ -4,13 +4,15 @@ import (
 	"context"
 
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
+	"github.com/hashicorp/terraform-plugin-framework/function"
 	"github.com/hashicorp/terraform-plugin-framework/provider"
 	"github.com/hashicorp/terraform-plugin-framework/provider/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 )
 
 var (
-	_ provider.Provider = (*exampleProvider)(nil)
+	_ provider.Provider              = (*exampleProvider)(nil)
+	_ provider.ProviderWithFunctions = (*exampleProvider)(nil)
 )
 
 type exampleProvider struct {
@@ -42,5 +44,9 @@ func (p *exampleProvider) DataSources(_ context.Context) []func() datasource.Dat
 }
 
 func (p *exampleProvider) Resources(_ context.Context) []func() resource.Resource {
+	return nil
+}
+
+func (p *exampleProvider) Functions(_ context.Context) []func() function.Function {
 	return nil
 }
