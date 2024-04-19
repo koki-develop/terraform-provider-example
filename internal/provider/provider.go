@@ -48,5 +48,7 @@ func (p *exampleProvider) Resources(_ context.Context) []func() resource.Resourc
 }
 
 func (p *exampleProvider) Functions(_ context.Context) []func() function.Function {
-	return nil
+	return []func() function.Function{
+		NewHelloFunction,
+	}
 }
