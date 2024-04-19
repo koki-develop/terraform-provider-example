@@ -9,5 +9,5 @@ terraform {
 provider "example" {}
 
 output "hello" {
-  value = provider::example::hello()
+  value = provider::example::hello("koki")
 }
