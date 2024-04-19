@@ -7,3 +7,7 @@ terraform {
 }
 
 provider "example" {}
+
+output "hello" {
+  value = provider::example::hello()
+}
